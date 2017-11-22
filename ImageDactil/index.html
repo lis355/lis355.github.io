@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <script defer src="images.js"></script>
+    <script defer src="words.js"></script>
+    <script defer src="main.js"></script>
+</head>
+
+<body onload="init(); trainer.setLetterInterval(800); trainer.setLengthLimit(5); trainer.newWord()">
+<style>
+    .alphabetCanvas {
+        border: 1px solid black;
+    }
+</style>
+<div align="center">
+    <div>
+        <image id="alphabetScreen" class="alphabetCanvas" width="100" height="135"></image>
+    </div>
+    <input value="Новое слово" type="button" onclick="trainer.newWord()">
+    <input value="Повторить" type="button" onclick="trainer.restart()">
+    <p></p>
+    <input id="inputField" type="text" class="input" tabindex="1" maxlength="20" size="25">
+    <input value="Проверить" type="button" onclick="trainer.check()">
+    <p id="correctWord"></p>
+    Число букв
+    <input value="3" onclick="trainer.setLengthLimit(3)" type="radio" name="lengthLimit"> 3
+    <input value="5" onclick="trainer.setLengthLimit(5)" type="radio" name="lengthLimit" checked="True"> 5
+    <input value="7" onclick="trainer.setLengthLimit(7)" type="radio" name="lengthLimit"> 7
+    <input value="Нет ограничения" onclick="setLengthLimit(-1)" type="radio" name="lengthLimit"> Любое </p>
+    <p>
+        Время между буквами
+        <input type="range" min="100" max="1000" value="800" step="25" onchange="trainer.setLetterInterval(value)">
+    </p>
+</div>
+</body>
+
+</html>
